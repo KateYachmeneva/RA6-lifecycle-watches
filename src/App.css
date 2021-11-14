@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.WatchField {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.Watch {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 2vmin;
+  margin: 1vmin;
+}
+.Watch_delete {
+  position: absolute;
+  top: 0.5vmin;
+  right: 1vmin;
+  padding: 0;
+  cursor: pointer;
+  font-size: small;
+  z-index: 999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Watch_name {
+  display: block;
+  padding: 1vmin;
+  font-size: medium;
+}
+
+.Watch_time {
+  display: block;
+  padding: 1vmin;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+/* ! CLOCK */
+
+.clock {
+  position: relative;
+  height: 45vmin;
+  width: 45vmin;
+  padding: 1vmin;
+  background: #fff url('./img/ios_clock.svg') no-repeat center;
+  background-size: 44%;
+}
+
+.clock.simple:after {
+  background: #000;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  z-index: 10;
+}
+
+.minutes-container,
+.hours-container,
+.seconds-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: #000;
+  height: 15%;
+  left: 48.75%;
+  position: absolute;
+  top: 35%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+  border-radius: 5px;
+}
+
+.minutes {
+  background: #000;
+  height: 20%;
+  left: 49%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2%;
+  border-radius: 15px;
+}
+
+.seconds {
+  background: #000;
+  height: 25%;
+  left: 49.5%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 80%;
+  width: 1%;
+  z-index: 8;
+  border-radius: 3px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.minutes-container {
+  transition: transform 0.3s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+.seconds-container {
+  transition: transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44);
 }
