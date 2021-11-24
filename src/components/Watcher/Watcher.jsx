@@ -39,19 +39,12 @@ function Watcher() {
   ];
   const btnText = 'Добавить';
 
-//   const onChangeHandler = (event) => {
-//     const { name, value } = event.target;
-//     // validation logic should be here?
-//     // console.log({ name, value });
-//     // setWatch((prevState) => ({ ...prevState, [name]: value }));
-//   };
-
   const onSubmitHandler =(data) => {
     setWatch(prevState => [...prevState, data])
   }
 
-  const onClickHandler = (event) => {
-    const removeId = event.target.dataset.id;
+  const onClickHandler = (id) => {
+    const removeId = id;
     const newWatch = watch.filter((el) => el.id !== removeId);
     setWatch(newWatch);
   };

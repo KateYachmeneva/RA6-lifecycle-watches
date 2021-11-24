@@ -20,7 +20,7 @@ function Watch({ onClickHandler, item }) {
 
   return (
     <li className='Watch'>
-      <span className='Watch_delete' onClick={onClickHandler} data-id={item.id}>
+      <span className='Watch_delete' onClick={() => onClickHandler(item.id)} >
         &#x2715;
       </span>
       <span className='Watch_name'>{item.name}</span>
